@@ -1,3 +1,3 @@
 function solution(arr) {
-    return arr.reduce((acc, cur) => acc + cur/arr.length, 0)
+    return arr.reduce((acc, cur) => acc + cur, 0)/arr.length
 }
