@@ -18,6 +18,5 @@ function solution(dartResult) {
       score[score.length-1] = score[score.length-1] * -1
     }
   });
-  
-  return score.reduce((acc,cur)=>acc+Number(cur))
+  return score.reduce((acc,cur)=>acc+cur)
 }
