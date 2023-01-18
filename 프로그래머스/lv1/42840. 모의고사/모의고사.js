@@ -3,16 +3,19 @@ function solution(answers) {
   let one = [1, 2, 3, 4, 5];
   let two = [2, 1, 2, 3, 2, 4, 2, 5];
   let three = [3, 3, 1, 1, 2, 2, 4, 4, 5, 5];
+  let rank = [0,0,0];
   
-  var one1 = answers.filter((a,i)=> a === one[i%one.length]).length;
-    var two2 = answers.filter((a,i)=> a === two[i%two.length]).length;
-    var three3 = answers.filter((a,i)=> a === three[i%three.length]).length;
-    var max = Math.max(one1,two2,three3);
+  answers.forEach((v,i)=>{
+    if(v === one[i%one.length])rank[0]++
+    if(v === two[i%two.length])rank[1]++
+    if(v === three[i%three.length])rank[2]++
+  });
+  
+  let max = Math.max(...rank);
 
-    if (one1 === max) {answer.push(1)};
-    if (two2 === max) {answer.push(2)};
-    if (three3 === max) {answer.push(3)};
-
-
-    return answer;
+  for(let i = 0; i < rank.length; i++) {
+      if(max === rank[i]) answer.push(i+1);
+  };
+  
+  return answer;
 }
