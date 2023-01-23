@@ -1,8 +1,6 @@
 function solution(babbling) {
-  let say = ["aya", "ye", "woo", "ma"];
-
   for(let i=0; i<babbling.length; i++){
-    for(let j=0; j<say.length; j++){
+    for(let j=0; j<3; j++){
       babbling[i] = babbling[i].replace('aya',1).replace('ye',2).replace('woo',3).replace('ma',4)
     }
   }
