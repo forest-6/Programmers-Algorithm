@@ -1,8 +1,15 @@
 function solution(babbling) {
-  for(let i=0; i<babbling.length; i++){
-    for(let j=0; j<3; j++){
-      babbling[i] = babbling[i].replace('aya',1).replace('ye',2).replace('woo',3).replace('ma',4)
-    }
-  }
-  return babbling.filter(v => v-0 && !v.includes('11') && !v.includes('22') && !v.includes('33') && !v.includes('44')).length
+  const say = ["aya", "ye", "woo", "ma"]; 
+  babbling.forEach((v1,i)=>{
+    say.forEach(v2=>{
+      if(v1.includes(v2.repeat(2))){
+        babbling[i] = babbling[i].replaceAll(v2,'a')
+      }
+      if(v1.includes(v2)){
+        babbling[i] = babbling[i].replaceAll(v2,'1')
+      }
+    })  
+  })
+  
+  return babbling.filter((v,i) => v-0).length
 }
