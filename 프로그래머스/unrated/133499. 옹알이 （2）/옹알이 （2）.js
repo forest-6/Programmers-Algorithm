@@ -5,11 +5,10 @@ function solution(babbling) {
       if(v1.includes(v2.repeat(2))){
         babbling[i] = babbling[i].replaceAll(v2,'a')
       }
-      if(v1.includes(v2)){
+      else if(v1.includes(v2)){
         babbling[i] = babbling[i].replaceAll(v2,'1')
       }
-    })  
+    })
   })
-  
-  return babbling.filter((v,i) => v-0).length
+  return babbling.filter(v=>v-0).length
 }
