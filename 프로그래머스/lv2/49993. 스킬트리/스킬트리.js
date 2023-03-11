@@ -1,17 +1,14 @@
 function solution(skill, trees) {
   var answer = 0;
-  let stk = [];
-  
   for(let i=0; i<trees.length; i++){
-    stk.push([]);
+    let flag = true;
+    let skillArr = skill.split('');
     for(let j=0; j<trees.length; j++){
-      if(skill.includes(trees[i][j])) stk[i].push(trees[i][j]);
+      if(!skillArr.includes(trees[i][j])) continue;
+      if(trees[i][j] === skillArr.shift()) continue;
+      flag = false;
     }
-    stk[i] = stk[i].join('');
+    if(flag)answer++ ;
   }
-  for(let i=0; i<stk.length; i++){
-    if(stk[i]===skill.substring(0,stk[i].length)) answer++;
-  }
-  
   return answer;
 }
